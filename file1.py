@@ -14,6 +14,7 @@ def login():
             if username == "admin" and password == "password":  # Replace with secure auth in real apps
                 st.session_state["logged_in"] = True
                 st.success("Login successful!")
+                display_products()
             else:
                 st.error("Invalid username or password")
         return False
