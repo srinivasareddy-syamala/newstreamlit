@@ -38,9 +38,9 @@ def display_products():
 
     # Product browsing section
     st.subheader("Available Products")
-    cols = st.columns(4)
+    cols = st.columns(len(products))  # Use the exact number of columns as products
     for i, product in enumerate(products):
-        with cols[i % 4]:
+        with cols[i]:
             st.image(product["image"], caption=product["name"], use_column_width=True)
             st.write(f"**Price:** ${product['price']:.2f}")
             if st.button(f"Add to Cart - {product['name']}", key=f"add_{product['id']}"):
@@ -76,3 +76,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
