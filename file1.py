@@ -27,10 +27,10 @@ def main():
 
     # Define product catalog (can be connected to a database in real-world applications)
     products = [
-        {"id": 1, "name": "Laptop", "price": 799.99, "image": "https://via.placeholder.com/150"},
-        {"id": 2, "name": "Smartphone", "price": 499.99, "image": "https://via.placeholder.com/150"},
-        {"id": 3, "name": "Headphones", "price": 99.99, "image": "https://via.placeholder.com/150"},
-        {"id": 4, "name": "Smartwatch", "price": 199.99, "image": "https://via.placeholder.com/150"},
+        {"id": 1, "name": "Laptop", "price": 799.99, "image": "laptop.jpg"},
+        {"id": 2, "name": "Smartphone", "price": 499.99, "image": "smartphone.jpp"},
+        {"id": 3, "name": "Headphones", "price": 99.99, "image":"headphones.jpg"},
+        {"id": 4, "name": "Smartwatch", "price": 199.99, "image": "smartwatch.jpg"},
     ]
 
     # Session state for cart
