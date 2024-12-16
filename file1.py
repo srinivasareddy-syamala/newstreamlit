@@ -7,14 +7,13 @@ def login():
 
     if not st.session_state["logged_in"]:
         st.title("Login")
-        username = st.text_input("Username")
-        password = st.text_input("Password", type="password")
+        username = st.text_input("Username", key="login_username")
+        password = st.text_input("Password", type="password", key="login_password")
 
-        if st.button("Login"):
+        if st.button("Login", key="login_button"):
             if username == "admin" and password == "password":  # Replace with secure auth in real apps
                 st.session_state["logged_in"] = True
                 st.success("Login successful!")
-                display_products()
             else:
                 st.error("Invalid username or password")
         return False
@@ -27,7 +26,7 @@ def display_products():
         {"id": 1, "name": "Laptop", "price": 799.99, "image": "laptop.jpg"},
         {"id": 2, "name": "Smartphone", "price": 499.99, "image": "smartphone.jpg"},
         {"id": 3, "name": "Headphones", "price": 99.99, "image": "headphones.jpg"},
-        {"id": 4, "name": "Smartwatch", "price": 199.99, "image": "smartwatch.jpg"},
+        {"id": 4, "name": "Smartwatch", "price": 199.99, "image": "smartphone.jpg"},
     ]
 
     # Session state for cart
@@ -72,9 +71,12 @@ def display_products():
 def main():
     st.set_page_config(page_title="E-commerce Application", layout="wide")
 
-    if login():
+    if st.session_state.get("logged_in", False):
         display_products()
+    else:
+        login()
 
 if __name__ == "__main__":
     main()
+
 
