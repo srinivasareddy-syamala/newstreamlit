@@ -19,12 +19,8 @@ def login():
         return False
     return True
 
-def main():
-    st.set_page_config(page_title="E-commerce Application", layout="wide")
-
-    if not login():
-        return
-
+def display_products():
+    """Display the product catalog."""
     # Define product catalog (can be connected to a database in real-world applications)
     products = [
         {"id": 1, "name": "Laptop", "price": 799.99, "image": "laptop.jpg"},
@@ -71,6 +67,12 @@ def main():
             st.session_state["cart"] = []
     else:
         st.write("Your cart is empty.")
+
+def main():
+    st.set_page_config(page_title="E-commerce Application", layout="wide")
+
+    if login():
+        display_products()
 
 if __name__ == "__main__":
     main()
